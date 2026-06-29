@@ -1,0 +1,48 @@
+import { Router, type IRouter } from "express";
+import healthRouter from "./health";
+import storageRouter from "./storage";
+import uploadsRouter from "./uploads";
+import authRouter from "./auth";
+import usersRouter from "./users";
+import locationsRouter from "./locations";
+import attendanceRouter from "./attendance";
+import leaveRouter from "./leave";
+import reportsRouter from "./reports";
+import settingsRouter from "./settings";
+import aiRouter from "./ai";
+import departmentsRouter from "./departments";
+import adminRouter from "./admin";
+import notificationsRouter from "./notifications";
+import payrollRouter from "./payroll";
+import messagesRouter from "./messages";
+import bonusesRouter from "./bonuses";
+import requestsRouter from "./requests";
+import workReportsRouter from "./work-reports";
+import pushRouter from "./push";
+import salaryAdvancesRouter from "./salary-advances";
+
+const router: IRouter = Router();
+
+router.use(healthRouter);
+router.use(storageRouter);
+router.use(uploadsRouter);
+router.use("/auth", authRouter);
+router.use("/users", usersRouter);
+router.use("/locations", locationsRouter);
+router.use("/attendance", attendanceRouter);
+router.use("/leave", leaveRouter);
+router.use("/reports", reportsRouter);
+router.use("/settings", settingsRouter);
+router.use("/ai", aiRouter);
+router.use("/departments", departmentsRouter);
+router.use("/admin", adminRouter);
+router.use("/notifications", notificationsRouter);
+router.use("/payroll", payrollRouter);
+router.use("/messages", messagesRouter);
+router.use("/bonuses", bonusesRouter);
+router.use("/requests", requestsRouter);
+router.use("/work-reports", workReportsRouter);
+router.use("/push", pushRouter);
+router.use("/salary-advances", salaryAdvancesRouter);
+
+export default router;
