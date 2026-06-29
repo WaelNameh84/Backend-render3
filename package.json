@@ -1,36 +1,32 @@
 {
-  "name": "@workspace/api-server",
+  "name": "api-server",
   "version": "0.0.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "export NODE_ENV=development && pnpm run build && pnpm run start",
+    "dev": "export NODE_ENV=development && node ./build.mjs && node --enable-source-maps ./dist/index.mjs",
     "build": "node ./build.mjs",
-    "build:prod": "pnpm --filter @workspace/db run push-force && node ./build.mjs",
-    "build:single": "pnpm --filter @workspace/db run push-force && BUILD_FRONTEND=true node ./build.mjs",
     "start": "node --enable-source-maps ./dist/index.mjs",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
     "@google-cloud/storage": "^7.21.0",
-    "@workspace/api-zod": "workspace:*",
-    "@workspace/db": "workspace:*",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.6",
-    "drizzle-orm": "catalog:",
+    "drizzle-orm": "0.38.4",
     "express": "^5.2.1",
     "google-auth-library": "^10.7.0",
     "nodemailer": "^9.0.1",
     "pino": "^9.14.0",
     "pino-http": "^10.5.0",
     "web-push": "^3.6.7",
-    "zod": "catalog:"
+    "zod": "^3.24.0"
   },
   "devDependencies": {
     "@types/cookie-parser": "^1.4.10",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
-    "@types/node": "catalog:",
+    "@types/node": "^22.0.0",
     "@types/nodemailer": "^8.0.1",
     "@types/web-push": "^3.6.4",
     "esbuild": "0.27.3",
